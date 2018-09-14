@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import './jobInfo.css'
 class JobInfo extends React.Component{
 
     constructor(props) {
@@ -9,8 +9,8 @@ class JobInfo extends React.Component{
     render() {
         return (
             <div className="jobInfo">
-
-                {JSON.stringify(this.props.info)}
+                <p><b>{this.props.jobID}). Job Type:</b> {this.props.jobType}, <b>Location:</b> {this.props.jobLocation}</p>
+                <p><b>Job Description:</b> {this.props.jobDesc}</p>
 
             </div>
         )

@@ -7,26 +7,22 @@ class ReturnJobs extends React.Component {
         super(props);
     }
 
-    showJobs = () => {
-
-        console.log("show returned jobs: ", this.props.data)
-        let data = this.props.data;
-
-        console.log(JSON.stringify(data[1]));
-
-    }
-
     render() {
         return (
             <div className="returnJobs">
 
-                <p> I am in return jobs </p>
+                {/*<p> I am in return jobs </p>*/}
                 {
                     // this.showJobs()
                     this.props.data.map((eachJob) =>
 
                         <JobInfo key={eachJob.id}
-                                 info={eachJob} />
+                                 jobID={eachJob.id}
+                                 jobType={eachJob.type}
+                                 jobDesc={eachJob.desc}
+                                 jobLocation={eachJob.location}
+
+                        />
                     )
                 }
 

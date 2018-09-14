@@ -1,16 +1,18 @@
 const express = require('express');
 const hbs = require('hbs');
+let cors = require('cors')
 
 let app = express();
-
+app.use(cors());
 hbs.registerPartials(__dirname + '../../views/partials')
 app.set('view engine', 'hbs')
 app.use(express.static(__dirname + '../../public'));
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
+
+// app.use(function(req, res, next) {
+//     res.header("Access-Control-Allow-Origin", "*");
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//     next();
+// });
 
 const jobs = [
     { id: 1, type: "Software Engineer", location: "San Jose", desc: "Software Dev Engineer I\n" +
@@ -38,7 +40,7 @@ const jobs = [
             "\n" +
             "Why join us:\n" +
             "Expedia Group recognizes our success is dependent on the success of our people. We are the world's travel platform, made up of the most knowledgeable, passionate, and creative people in our business. Our brands recognize the power of travel to break down barriers and make people's lives better – that responsibility inspires us to be the place where exceptional people want to do their best work, and to provide them the tools to do so. \n" +
-            "\n" },
+            "\n" } ,
     { id: 2, type: "Software Engineer", location: "San Jose", desc: "Software Engineer, Entry-Level (2019)\n" +
             "Coursera - Mountain View, CA 94041. Coursera is scaling a global platform to provide universal access to the world’s best education, and we’re motivated by the passion and mission to transform lives through learning. Our platform has reached over 30 million learners worldwide and we have partnered with 150+ elite universities around the globe with over 2,000 courses in our catalog. We offer Courses, Specializations, Certificates, and Degrees to meet the needs and goals of the diverse learners who to come Coursera.\n" +
             "In 2016, we began offering fully accredited online Masters degrees which provide a more convenient, lower-cost, “stackable” means of earning credentials identical to their traditional on-campus counterparts. We also launched Coursera for Business, partnering with enterprise companies around the world to provide access to curated skill development for their employees.\n" +
@@ -975,10 +977,12 @@ app.get('/help', (req,res) => {
 app.get('/jobs', (req, res) => {
 
     console.log("Fine")
-    var loc = req.query.location;
+    let loc = req.query.location;
+    let searchType = req.query.type;
+
     console.log(req.query);
 
-    if(loc!="")
+    if(loc!="" && searchType==="")
     {
         let matchedJobs = jobs.filter(val => {
             return val.location === loc;
@@ -986,11 +990,22 @@ app.get('/jobs', (req, res) => {
         res.send(matchedJobs);
     }
 
-    // else
-    // {
-    //
-    // }
+    else if(searchType!="" && loc==="")
+    {
+        let matchedJobs = jobs.filter(val => {
+            return val.type === searchType;
+        })
+        res.send(matchedJobs);
 
+    }
+
+    else if(searchType !="" && loc!= ""){
+        let matchedJobs = jobs.filter(val => {
+            return ((val.location === loc) && (val.type === searchType));
+        })
+        res.send(matchedJobs);
+
+    }
     res.send(jobs);
 
 
