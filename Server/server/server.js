@@ -1,7 +1,7 @@
 const express = require('express');
 const hbs = require('hbs');
 
-var app = express();
+let app = express();
 
 hbs.registerPartials(__dirname + '../../views/partials')
 app.set('view engine', 'hbs')
@@ -951,14 +951,14 @@ app.get('/about', (req,res) => {
     pageTitle: 'About Page',
     currentYear: new Date().getFullYear()
   })
-})
+});
 
 app.get('/help', (req,res) => {
   res.render('help.hbs', {
     pageTitle: 'Help Page',
     currentYear: new Date().getFullYear()
   })
-})
+});
 
 // app.get('/Jobs', (req,res) => {
 //   res.render('jobs.hbs', {
@@ -967,11 +967,34 @@ app.get('/help', (req,res) => {
 //   })
 // })
 
+//working
+// app.get('/jobs', (req, res) => {
+//     res.send(jobs);
+// });
 
 app.get('/jobs', (req, res) => {
-    res.send(jobs);
-});
 
+    console.log("Fine")
+    var loc = req.query.location;
+    console.log(req.query);
+
+    if(loc!="")
+    {
+        let matchedJobs = jobs.filter(val => {
+            return val.location === loc;
+        })
+        res.send(matchedJobs);
+    }
+
+    // else
+    // {
+    //
+    // }
+
+    res.send(jobs);
+
+
+});
 
 
 app.listen(5000, () => {
