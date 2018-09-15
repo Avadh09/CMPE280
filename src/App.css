@@ -1,6 +1,14 @@
+import myimage from './backgroundImg.jpg'*/
+
 .App {
     margin: 1rem;
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
-    background-color: #1e00ff;
+    /*background-color: #1e00ff;*/
+    width: 97%;
+    height: 100%;
+    padding: 1px;
+    /*background-image: {myimage};*/
+    /*background: #ff3300 url({myimage});*/
+
 }

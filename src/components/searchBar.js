@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+// import { Route, Redirect } from 'react-router';
 import ReturnJobs from './returnedJobs'
+import logo from '../../erecruit_logo.png'
 import axios from 'axios';
+import './searchBar.css'
 
 class Search extends React.Component{
     constructor(props) {
@@ -52,31 +55,67 @@ class Search extends React.Component{
 
         }
 
+    // handleLogin = () =>{
+    //      <Route path='/login' component={() => window.location = '\'http://localhost:5000'}/>
+    // }
+
     render() {
         return (
-            <div className="searchBar">
-                <form method='get' onSubmit={this.handleSubmit}>
-                    <div className="jobSearch" >
-                        <input
-                            placeholder="Search for..."
-                            ref={input => this.search = input}
-                            onChange={this.handleInputChange}
-                        />
+            <div className="Home">
+                <div className="headerContainer">
+
+                    {/*className='logoContainer'*/}
+                    <div >
+                        <img src={logo} className="logo" width='90'/>
                     </div>
+                    {/*<div className="loginButton">*/}
+                        {/*/!*<button onClick={this.handleLogin}>Login/SignUp</button>*!/*/}
+                    {/*</div>*/}
 
-                    <div className="searchLocation">
-                        <input
-                            placeholder="Place..."
-                            ref={input => this.place = input}
-                            onChange={this.handlePlaceChange}
-                        />
-                    </div>
-                    <p>{this.state.searchQuery}</p>
+                </div>
+                <div className="searchBar">
+                    <form method='get' onSubmit={this.handleSubmit}>
 
-                    <button>Search</button>
-                </form>
+                        <div className='searchContainer'>
 
-                <ReturnJobs data={this.state.jobsData} />
+                            <div className="jobSearch" >
+                                <input
+                                    className="searchJobs"
+                                    size="35"
+                                    placeholder="Search for..."
+                                    ref={input => this.search = input}
+                                    onChange={this.handleInputChange}
+                                />
+                            </div>
+
+                            <div className="searchLocation">
+                            <input
+                                className="SearchLocation"
+                                size="35"
+                                placeholder="Place..."
+                                ref={input => this.place = input}
+                                onChange={this.handlePlaceChange}
+                            />
+                            </div>
+
+                            <div className="searchButton"><button className="button">Search</button></div>
+
+
+
+                            {/*<p>{this.state.searchQuery}</p>*/}
+
+
+
+                        </div>
+
+
+
+                    </form>
+
+                    <ReturnJobs data={this.state.jobsData} />
+
+                </div>
+
 
             </div>
         )

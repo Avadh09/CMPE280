@@ -15,10 +15,40 @@ module.exports = {
                 // loader: 'babel-loader',
                 // options: { presets: ['env'] }
             },
+
             {
                 test: /\.css$/,
                 use: [ 'style-loader', 'css-loader' ]
+            },
+
+            {
+                test: /\.(jpg|png|woff|woff2|eot|ttf|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+                use: [
+                        {
+                            loader: 'url-loader'
+                        },
+                    ]
             }
+
+            // {
+            //     test: /\.(pdf|jpg|png|gif|svg|ico)$/,
+            //     use: [
+            //         {
+            //             loader: 'url-loader'
+            //         },
+            //     ]
+            // }
+            // {
+            //     test: /\.(jpg|png|gif|svg|pdf|ico)$/,
+            //     use: [
+            //         {
+            //             loader: 'file-loader',
+            //             options: {
+            //                 name: '[path][name]-[hash:8].[ext]'
+            //             },
+            //         },
+            //     ]
+            // }
         ]
     },
     resolve: { extensions: ['*', '.js', '.jsx'] },

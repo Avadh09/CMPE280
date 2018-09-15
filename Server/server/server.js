@@ -1,12 +1,15 @@
 const express = require('express');
 const hbs = require('hbs');
 let cors = require('cors')
-
+let path = require('path');
+let bodyParser = require('body-parser');
+let session = require('express-session');
+let cookieParser = require('cookie-parser');
+let lineReader = require('line-reader');
+let index = require('../routes/index');
 let app = express();
-app.use(cors());
-hbs.registerPartials(__dirname + '../../views/partials')
-app.set('view engine', 'hbs')
-app.use(express.static(__dirname + '../../public'));
+
+
 
 // app.use(function(req, res, next) {
 //     res.header("Access-Control-Allow-Origin", "*");
@@ -925,54 +928,44 @@ const jobs = [
 ];
 
 
+app.use(cors());
+hbs.registerPartials(__dirname + '../../views/partials')
+app.set('view engine', 'hbs')
+app.use(express.static(__dirname + '../../public'));
+
+//View engine setup
+//app.set('views', path.join(__dirname, 'views'));
 
 
-/*
-app.get('/', (req,res) => {
-  //res.send('<h1>Hello Express!</h1>');
-  res.send({
-    name: 'Marianne',
-    likes: [
-      'Running',
-      'Family'
-    ]
-  })
-});
-*/
-app.get('/', (req,res) => {
-  res.render('home.hbs', {
-    pageTitle: 'Home Page',
-    welcomeMessage: "Welcome to my website",
-    currentYear: new Date().getFullYear()
-  })
-})
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(express.static(path.join(__dirname, 'public')));
+app.use(session( {secret: "String for encrypting cookies." } ));
+app.use(cookieParser());
 
-
-app.get('/about', (req,res) => {
-  res.render('about.hbs', {
-    pageTitle: 'About Page',
-    currentYear: new Date().getFullYear()
-  })
-});
-
-app.get('/help', (req,res) => {
-  res.render('help.hbs', {
-    pageTitle: 'Help Page',
-    currentYear: new Date().getFullYear()
-  })
-});
-
-// app.get('/Jobs', (req,res) => {
-//   res.render('jobs.hbs', {
-//     pageTitle: 'Search for Jobs',
+// app.get('/', (req,res) => {
+//   res.render('home.hbs', {
+//     pageTitle: 'Home Page',
+//     welcomeMessage: "Welcome to my website",
 //     currentYear: new Date().getFullYear()
 //   })
 // })
 
-//working
-// app.get('/jobs', (req, res) => {
-//     res.send(jobs);
-// });
+app.use('/',index);
+
+app.get('/about', (req,res) => {
+    res.render('about.hbs', {
+        pageTitle: 'About Page',
+        currentYear: new Date().getFullYear()
+    })
+});
+
+app.get('/help', (req,res) => {
+    res.render('help.hbs', {
+        pageTitle: 'Help Page',
+        currentYear: new Date().getFullYear()
+    })
+});
 
 app.get('/jobs', (req, res) => {
 
@@ -1011,6 +1004,7 @@ app.get('/jobs', (req, res) => {
 
 });
 
+module.exports = app;
 
 app.listen(5000, () => {
   console.log('Server is up on port 5000')
