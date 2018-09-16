@@ -2,17 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="24415b50-656d-42df-87e9-ba90cbd964b1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../src/components/home/homePage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/components/jobInfo.css" beforeDir="false" afterPath="$PROJECT_DIR$/../src/components/jobInfo/jobInfo.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/components/jobInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/components/jobInfo/jobInfo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/components/returnedJobs.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/components/returnedJobs.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/components/returnedJobs.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/components/returnedJobs/returnedJobs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/components/searchBar.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/components/searchBar.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/enterTalentPool/enterTalentPool.css" beforeDir="false" afterPath="$PROJECT_DIR$/../src/components/enterTalentPool/enterTalentPool.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/enterTalentPool/enterTalentPool.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/components/enterTalentPool/enterTalentPool.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -237,12 +230,12 @@
       <workItem from="1536898005209" duration="5231000" />
       <workItem from="1536910100451" duration="1874000" />
       <workItem from="1536933143893" duration="13404000" />
-      <workItem from="1537131781372" duration="1957000" />
+      <workItem from="1537131781372" duration="2569000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22466000" />
+    <option name="totallyTimeSpent" value="23078000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
