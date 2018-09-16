@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import JobInfo from './jobInfo'
+import JobInfo from '../jobInfo/jobInfo'
 
 class ReturnJobs extends React.Component {
 

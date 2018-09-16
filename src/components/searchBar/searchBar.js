@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import { Route, Redirect } from 'react-router';
-import ReturnJobs from './returnedJobs'
-import logo from '../../erecruit_logo.png'
+import ReturnJobs from '../returnedJobs/returnedJobs'
+import logo from '../../../erecruit_logo.png'
 import axios from 'axios';
 import './searchBar.css'
 
@@ -13,6 +13,7 @@ class Search extends React.Component{
             placeValue:'',
             jobsData: []
         };
+
     }
 
     handleInputChange = () => {

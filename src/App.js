@@ -3,7 +3,9 @@ import React, { Component} from "react";
 import {hot} from "react-hot-loader";
 import "./App.css";
 
-import Search from './components/searchBar'
+
+import Search from './components/searchBar/searchBar'
+import Home from './components/home/homePage'
 
 class App extends Component{
     render(){
@@ -13,6 +15,7 @@ class App extends Component{
                 {/*<h1> Logo </h1>*/}
                 {/*<p>CMPE 280</p>*/}
                 <Search/>
+                <Home/>
 
             </div>
         );
