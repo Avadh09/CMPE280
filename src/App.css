@@ -12,3 +12,8 @@ import myimage from './backgroundImg.jpg'*/
     /*background: #ff3300 url({myimage});*/
 
 }
+.linkPages{
+
+    display: flex;
+    justify-content:flex-end;
+}

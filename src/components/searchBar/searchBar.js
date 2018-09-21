@@ -64,16 +64,15 @@ class Search extends React.Component{
         return (
             <div className="Home">
                 <div className="headerContainer">
-
-                    {/*className='logoContainer'*/}
                     <div >
-                        <img src={logo} className="logo" width='90'/>
+                        <img src={logo} className="logo" width='150'/>
                     </div>
-                    {/*<div className="loginButton">*/}
-                        {/*/!*<button onClick={this.handleLogin}>Login/SignUp</button>*!/*/}
-                    {/*</div>*/}
+                    <div className="loginButton">
+                        {/*<button onClick={this.handleLogin}>Login/SignUp</button>*/}
+                        </div>
 
                 </div>
+
                 <div className="searchBar">
                     <form method='get' onSubmit={this.handleSubmit}>
 
