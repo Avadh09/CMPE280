@@ -10,52 +10,91 @@ class EnterTalentPool extends Component{
     constructor (props) {
         super(props);
         this.state = {
-            fields:{},
-            errors:{}
+            fields:{
+                "firstName":"",
+                "middleName" : "",
+                "lastName":"",
+                "phone": "",
+                "email":"",
+                "interest": ""
+
+            },
+            errors:{
+                "firstName":"",
+                "middleName" : "",
+                "lastName":"",
+                "phone": "",
+                "email":"",
+                "interest": ""
+            }
 
         }
     }
 
-
-    validate =(event) =>
+    Inputvalidate =() =>
     {
-        event.preventDefault();
-        firstName  = document.getElementById("firstName").value;
-        console.log("firstname", firstName)
-        lastName  = document.getElementById("lastName").value;
-        phone = document.getElementById("phone").value;
-        email = document.getElementById("email").value;
-        interest = document.getElementById("interest").value;
 
-        errors = "";
+        let firstName  = this.state.fields.firstName ? this.state.fields.firstName: "" ;
+        console.log("firstname", firstName)
+        let lastName  = this.state.fields.lastName ? this.state.fields.lastName: "" ;
+        let phone = this.state.fields.phone ? this.state.fields.phone :"" ;
+        let email = this.state.fields.email ? this.state.fields.email : "";
+        let interest = this.state.fields.interest ? this.state.fields.interest : "";
+
+        let errors = "";
+        let errorObject = {}
 
         if (firstName === "") {
-            errors += "First name is required.\n";
+            //errors += "First name is required.\n";
+
+            errorObject.firstName = "First name is required.\n";
+            console.log("errorObject:", errorObject)
+            this.setState({errors: errorObject});
         }
 
         if (lastName === "") {
-            errors += "Last name is required.\n";
+            //errors += "Last name is required.\n";
+            //let errorObject = {}
+            errorObject.lastName = "Last name is required.\n";
+            this.setState({errors: errorObject});
+
         }
 
         if (interest === "") {
-            errors += "Interest is required.\n";
+            //errors += "Interest is required.\n";
+           // let errorObject = {};
+            errorObject.interest = "Interest is required.\n";
+            this.setState({errors: errorObject});
         }
 
-        phoneRE = /^\(\d{3}\) *\d{3}-\d{4}$/;
+        let phoneRE = /^\(\d{3}\) *\d{3}-\d{4}$/;
         if (!phone.match(phoneRE)){
-            errors += "Invalid phone number. " +
+            //errors += "Invalid phone number. " +
                 "Example: (999) 999-9999\n";
+
+            //let errorObject = {};
+            errorObject.phone = "Invalid phone number. " +
+            "Example: (999) 999-9999\n";
+            this.setState({errors: errorObject});
+
         }
 
-        emailRE = /^.+@.+\..{2,4}$/;
+        let emailRE = /^.+@.+\..{2,4}$/;
         if (!email.match(emailRE)){
-            errors += "Invalid email address. " +
+            //errors += "Invalid email address. " +
                 "Should be xxxxx@xxxxx.xxx\n";
+
+            //let errorObject = {};
+            errorObject.email = "Invalid email address. " +
+                "Should be xxxxx@xxxxx.xxx\n"
+            this.setState({errors: errorObject});
         }
 
         if (errors != "") {
-            alert(errors);
+            //alert(errors);
         }
+
+        
     }
 
     handleInputChange(field, event) {
@@ -64,13 +103,23 @@ class EnterTalentPool extends Component{
         fields[field] = event.target.value;
         this.setState({fields});
 
+        if(this.state.errors[field]) {
+
+            console.log("I m trying to delete")
+
+            delete this.state.errors[field];
+        }
+
     }
     handleSubmit =(event) =>
     {
         event.preventDefault()
 
+        console.log(this.state.fields)
 
+        this.Inputvalidate();
 
+        console.log("error", this.state.errors)
 
     }
 
@@ -93,7 +142,8 @@ class EnterTalentPool extends Component{
                                onChange={this.handleInputChange.bind(this,"firstName")}
                                value={this.state.fields["firstName"]}
                                id="firstName"/>
-                        <span style={{color: "red"}}>{this.state.errors["firstName"]}</span>
+                        <br/>
+                        <span style={{color: "red"}}>{this.state.errors["firstName"] ? this.state.errors["firstName"] : "" }</span>
                         <br/>
                         <label>Middle Name:</label>
                         <input type="text"
@@ -101,38 +151,41 @@ class EnterTalentPool extends Component{
                                onChange={this.handleInputChange.bind(this, "middleName")}
                                value={this.state.fields["middleName"]}
                                id="middleName"/>
-                        <span style={{color: "red"}}>{this.state.errors["middleName"]}</span>
-                        <br/>
+                        {/*<span style={{color: "red"}}>{this.state.errors["middleName"]}</span>*/}
+
                         <label>Last Name*:</label>
                         <input type="text"
                                ref="lastName"
                                onChange={this.handleInputChange.bind(this, "lastName")}
                                value={this.state.fields["lastName"]}
                                id="lastName"/>
-                        <span style={{color: "red"}}>{this.state.errors["lastName"]}</span>
                         <br/>
+                        <span style={{color: "red"}}>{this.state.errors["lastName"] ? this.state.errors["lastName"] :"" }</span>
+
                         <label>Phone number:</label>
                         <input type="text"
                                value="(nnn) nnn-nnnn"
-                               onChange={this.handleInputChange.bind(this, "phoneNumber")}
-                               value={this.state.fields["phoneNumber"]}
+                               onChange={this.handleInputChange.bind(this, "phone")}
+                               value={this.state.fields["phone"]}
                                id="phone"/>
-                        <span style={{color: "red"}}>{this.state.errors["phoneNumber"]}</span>
                         <br/>
+                        <span style={{color: "red"}}>{this.state.errors["phone"] ? this.state.errors["phone"] : "" }</span>
+
                         <label>Email address:</label>
                         <input type="text"
                                value="xxxxx@xxxxx.xxx"
                                onChange={this.handleInputChange.bind(this, "email")}
                                value={this.state.fields["email"]}
                                id="email"/>
-                        <span style={{color: "red"}}>{this.state.errors["email"]}</span>
                         <br/>
+                        <span style={{color: "red"}}>{this.state.errors["email"] ? this.state.errors["email"] : "" }</span>
+
                         <label>Jobs of Interest*:</label>
                         <input type="text"
                                onChange={this.handleInputChange.bind(this, "interest")}
                                value={this.state.fields["interest"]}
                                id="interest"/>
-                        <span style={{color: "red"}}>{this.state.errors["interest"]}</span>
+                        <span style={{color: "red"}}>{this.state.errors["interest"] ? this.state.errors["interest"] : "" }</span>
                         <br/>
                         <button>
                             Enter

@@ -29,3 +29,9 @@ button {
     margin-right: auto;
     clear: both;
 }
+
+span {
+
+    display: inline-table;
+    text-align: center;
+}
