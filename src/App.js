@@ -11,6 +11,11 @@ import {Link} from 'react-router-dom';
 
 class App extends Component{
 
+
+    AlertFunction = () =>{
+
+        alert("This functionality is not yet added!!! ")
+    }
     render(){
         return(
             // style={{backgroundImage: "url(" + Background + ")"}}
@@ -28,7 +33,8 @@ class App extends Component{
 
                     <Link to='/talentpool'><button className="btn btn-primary btn-large float-right m-2"> Join our Talent Pool </button></Link>
                     <Link to='/search'><button className="btn btn-primary btn-large float-right m-2"> Search Openings </button> </Link>
-                    <button className="btn btn-primary btn-large float-right m-2"> Sign up for Job Alerts </button>
+
+                        <button className="btn btn-primary btn-large float-right m-2" onClick={this.AlertFunction}> Sign up for Job Alerts </button>
 
                     </div>
                         {/*<div className="loginButton">*/}
