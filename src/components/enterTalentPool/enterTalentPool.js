@@ -132,13 +132,30 @@ class EnterTalentPool extends Component{
             .then((response) => {
                 //response.data = JSON.stringify(response.data);
                 console.log(response.data);
+                let correct = 0;
 
-                if(Object.keys(this.state.errors).length === 0){
+                console.log("eorros in response", this.state.errors)
 
+                Object.keys(this.state.errors).map((key)=> {
+
+                    if (this.state.errors[key] != ""){
+
+                        correct=correct +1;
+
+                    }
+
+                })
+
+                if(correct === 0){
+
+                    console.log("I am inside")
 
                     alert("Thank You ! Your data is submitted :)");
 
                 }
+
+
+
 
                 // return (
                 //

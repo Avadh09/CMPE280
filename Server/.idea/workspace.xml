@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="24415b50-656d-42df-87e9-ba90cbd964b1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../src/components/enterTalentPool/ThankYou.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/../src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../src/components/enterTalentPool/enterTalentPool.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/components/enterTalentPool/enterTalentPool.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/components/searchBar/searchBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/components/searchBar/searchBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/index.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
