@@ -953,6 +953,14 @@ app.use(cookieParser());
 
 app.use('/',index);
 
+app.post('/thankYou', (req, res) =>{
+
+    console.log("request is ",  req);
+    res.send('Thank you');
+
+
+});
+
 app.get('/about', (req,res) => {
     res.render('about.hbs', {
         pageTitle: 'About Page',

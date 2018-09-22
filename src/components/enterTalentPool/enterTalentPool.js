@@ -2,6 +2,11 @@ import React, { Component} from "react";
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './enterTalentPool.css'
 import logo from "../../../erecruit_logo.png";
+import axios from "axios";
+import { BrowserRouter as Router, Route , Redirect} from 'react-router-dom'
+
+
+
 // import Search from "./searchBar";
 //import background from '../../backgroundImg.jpg';
 
@@ -35,7 +40,6 @@ class EnterTalentPool extends Component{
     {
 
         let firstName  = this.state.fields.firstName ? this.state.fields.firstName: "" ;
-        console.log("firstname", firstName)
         let lastName  = this.state.fields.lastName ? this.state.fields.lastName: "" ;
         let phone = this.state.fields.phone ? this.state.fields.phone :"" ;
         let email = this.state.fields.email ? this.state.fields.email : "";
@@ -121,7 +125,39 @@ class EnterTalentPool extends Component{
 
         console.log("error", this.state.errors)
 
-    }
+        let formData = JSON.stringify(this.state.fields);
+
+
+        axios.post('http://localhost:5000/thankYou', formData)
+            .then((response) => {
+                //response.data = JSON.stringify(response.data);
+                console.log(response.data);
+
+                if(Object.keys(this.state.errors).length === 0){
+
+
+                    alert("Thank You ! Your data is submitted :)");
+
+                }
+
+                // return (
+                //
+                //     <div>
+                //     <Router>
+                //         <Route to={'/thankYou'}/>
+                //     </Router>
+                //
+                //     </div>
+                //
+                // )
+
+            })
+            .catch((error) => {
+               // console.log(error);
+            });
+
+
+}
 
     render(){
         return(
@@ -190,6 +226,8 @@ class EnterTalentPool extends Component{
                         <button>
                             Enter
                         </button>
+
+
                         <br/>
                     </fieldset>
                 </form>

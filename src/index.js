@@ -6,6 +6,7 @@ import Home from './components/home/homePage';
 import Search from './components/searchBar/searchBar';
 import "./index.css"
 import EnterTalentPool from "./components/enterTalentPool/enterTalentPool";
+import ThankYou from "./components/enterTalentPool/ThankYou";
 
 ReactDOM.render(
 
@@ -14,6 +15,7 @@ ReactDOM.render(
         <Route exact path="/" component={App} />
         <Route path="/search" component={Search} />
             <Route path="/talentpool" component={EnterTalentPool} />
+            <Route path ='/thankYou' component={ThankYou}/>
             {/*<Route path="*" component={App} />*/}
         </div>
 

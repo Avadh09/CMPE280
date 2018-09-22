@@ -46,7 +46,6 @@ class Search extends React.Component{
                 //response.data = JSON.stringify(response.data);
                 responseData = response.data.slice();
                 this.setState({
-
                     jobsData: response.data
                 })
             })
@@ -59,7 +58,6 @@ class Search extends React.Component{
     // handleLogin = () =>{
     //      <Route path='/login' component={() => window.location = '\'http://localhost:5000'}/>
     // }
-
     render() {
         return (
             <div className="Home">
