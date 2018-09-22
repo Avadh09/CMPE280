@@ -26,17 +26,17 @@ class App extends Component{
 
                     <div className="linkPages">
 
-
-
                     <Link to='/talentpool'><button className="btn btn-primary btn-large float-right m-2"> Join our Talent Pool </button></Link>
                     <Link to='/search'><button className="btn btn-primary btn-large float-right m-2"> Search Openings </button> </Link>
                     <button className="btn btn-primary btn-large float-right m-2"> Sign up for Job Alerts </button>
+
                     </div>
                         {/*<div className="loginButton">*/}
                     {/*/!*<button onClick={this.handleLogin}>Login/SignUp</button>*!/*/}
                     {/*</div>*/}
 
                 </div>
+
                 <Home/>
                 {/*<Search/>*/}
             </div>
